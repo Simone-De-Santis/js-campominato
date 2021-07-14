@@ -68,5 +68,27 @@ Quando la partita termina, comunichiamo all'utente il suo punteggio.
 
   // Variabili 
 //inserimento numero utente
-var messageWelcom =alert("BENVENUTO IN CAMPO MINATO \n Regole: \n1- Inserisci un numero da 1 a 100 \n2- I numeri non devono ripetersi \n3- Se inserisci un numero BOMBA perdi la partita \n4- Se inserisci un numero non BOMBA passi al turno successivo e guadagni 1 punto  \n                              Se è tutto chiaro premi \"OK\" e.....\n                              BUON DIVERTIMENTO....!!  ")
+var messageWelcom = alert("BENVENUTO IN CAMPO MINATO \n Regole: \n1- Inserisci un numero da 1 a 100 \n2- I numeri non devono ripetersi \n3- Se inserisci un numero BOMBA perdi la partita \n4- Se inserisci un numero non BOMBA passi al turno successivo e guadagni 1 punto  \n                              Se è tutto chiaro premi \"OK\" e.....\n                              BUON DIVERTIMENTO....!!  ")
+// numero utente 
+var numberUser = parseInt(prompt("Inserisci un numero da 1 a 100 ","50"));
+// lista di numeri bomba generati in automatico all'avvio della pagina (16 numeri) (viene controllato prima di ogni pusch)
+var listBombNumbers = [];
+// lista di numeri inseriti dall'utente( si aggiorna ad ogni pusch e viene controllata prima di ogni pusch)
+var listNumberInsertedUser = [""];
+// punteggio(numero di turno)
+var score = "";
+
+//? ***** VALIDATION *****
+//ciclo per inserire i 16 numeri in listBombNumbers
+//* continua a generare numeri compresi tra 1 e 100 fino a quando in listBombNumbers non sono presenti 16 numeri diversi
+while (listBombNumbers.length < 16 ){
+  var generatorRandom = Math.floor((Math.random() * 100) + 1);
+  if (!listBombNumbers.includes(generatorRandom)) {
+    listBombNumbers.push(generatorRandom);
+      }
+}
+console.table(listBombNumbers);
+
+
+
 
