@@ -60,8 +60,13 @@ Quando la partita termina, comunichiamo all'utente il suo punteggio.
    * controlla se è stato inserito un numero delle 16 bombe ( in tal caso la partita è finita)
                                                            todo: se la partita finisce comunica il punteggio (numero di turno)
    * passa al turno successivo(inserimento del numero successivo) assegnando 1 punto
-  
+  */
 
-    
 
-*/
+
+  //! ********** PROGRAMMA **********
+
+  // Variabili 
+//inserimento numero utente
+var messageWelcom =alert("BENVENUTO IN CAMPO MINATO \n Regole: \n1- Inserisci un numero da 1 a 100 \n2- I numeri non devono ripetersi \n3- Se inserisci un numero BOMBA perdi la partita \n4- Se inserisci un numero non BOMBA passi al turno successivo e guadagni 1 punto  \n                              Se è tutto chiaro premi \"OK\" e.....\n                              BUON DIVERTIMENTO....!!  ")
+
