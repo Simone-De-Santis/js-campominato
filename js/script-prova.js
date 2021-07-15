@@ -21,6 +21,25 @@ var listBombNumbers = [];
 var listUserNumber = [];
 var round = totalNumbers - totalBomb;
 var userLost = false;
+var listLevel = ["facile", "normale", "difficile"];
+console.log(listLevel)
+var level = prompt("scegli il livello di difficoltà : 'facile'  'normale'  'difficile'");
+console.log(level)
+
+while (!level || !isInArray(level.toLocaleLowerCase().trim(), listLevel)) {
+  level = prompt("scegli il livello di difficoltà : 'facile'  'normale'  'difficile'");
+}
+
+switch (level) {
+  case "facile":
+    totalNumbers = 100;
+    break;
+  case "difficile":
+    totalNumbers = 50;
+    break;
+  default:
+    totalNumbers = 80;
+}
 
 while (listBombNumbers.length < totalBomb) {
   var generatorRandom = getRandomNumber(1, totalNumbers);
@@ -28,8 +47,6 @@ while (listBombNumbers.length < totalBomb) {
     listBombNumbers.push(generatorRandom);
   }
 }
-console.table(listBombNumbers)
-
 
 while (!userLost && listUserNumber.length < round) {
   //chiedo un numero e lo controllo
@@ -42,7 +59,6 @@ while (!userLost && listUserNumber.length < round) {
     if (isInArray(userChoice, listUserNumber)) {
       //controllo che il numero non sia nell'array
       alert("numero già inserito")
-
     } else {
       listUserNumber.push(userChoice);
     }
@@ -54,7 +70,7 @@ if (userLost) {
   alert("hai VINTO   !!!! hai totalizato :" + "  " + listUserNumber.length + " " + "punti")
 
 }
-console.log("hai vinto")
+
 
 //! *********** funzioni */
 /**
