@@ -70,17 +70,22 @@ Quando la partita termina, comunichiamo all'utente il suo punteggio.
 //inserimento numero utente
 var messageWelcom = alert("BENVENUTO IN CAMPO MINATO \n Regole: \n1- Inserisci un numero da 1 a 100 \n2- I numeri non devono ripetersi \n3- Se inserisci un numero BOMBA perdi la partita \n4- Se inserisci un numero non BOMBA passi al turno successivo e guadagni 1 punto  \n                              Se è tutto chiaro premi \"OK\" e.....\n                              BUON DIVERTIMENTO....!!  ")
 // numero utente 
-var numberUser = parseInt(prompt("Inserisci un numero da 1 a 100"+" \n1/(100-numberBomb)","50"));
+//!!!!!!!!!!!!!!!!!!!! var numberUser = parseInt(prompt("Inserisci un numero da 1 a 100"+" \n1/(100-numberBomb)","50"));
 // lista di numeri bomba generati in automatico all'avvio della pagina (16 numeri) (viene controllato prima di ogni pusch)
 var listBombNumbers = [];
 // lista di numeri inseriti dall'utente( si aggiorna ad ogni pusch e viene controllata prima di ogni pusch)
 var listNumberInsertedUser = [];
 // punteggio(numero di turno)
-var score = "";
+var score = listNumberInsertedUser.length;
 // Numero delle bombe (difficoltà)
 var numberBomb = "16";
 // numero di tentativi rimasti
-var round = (100 - numberBomb)
+var round = (100 - numberBomb);
+// variabile d'appoggio per stabilire se il gioco deve proseguire o no        
+var inGame = true;
+// var per vedere quante partite mancano 
+// var remainingNumbers = (round - score);
+
 
 //? ***** VALIDATION *****
 //ciclo per inserire i 16 numeri in listBombNumbers
@@ -93,24 +98,45 @@ while (listBombNumbers.length < numberBomb ){
 }
 console.table(listBombNumbers);
 
-// controllare il numero inserito dall'utente 
-// controllare se non è uguale a un numero bomba 
-                                    // se è uguale al numero bomba la patita termina e ariva un allert partita terminata e viene comunicato il punteggio 
-// controllare se è diverso da quelli presenti nell'array
-// inserisci il numero nell'array e assegna un punto
-// ripetere il ciclio fino ad attivare a 100- numero delle bombe 
-
-for (var i = 0; i < round; i++) {
-  if (listBombNumbers.includes(numberUser)) {
-    console.log("hai perso")
-  } else if (!listNumberInsertedUser.includes(numberUser)) {
-    console.log("numero già inserito");
-    numberUser = parseInt(prompt("Inserisci un numero da 1 a 100"+" \n1/(100-numberBomb)","50"))
-  } else {
-    listNumberInsertedUser.push(numberUser)
-  }
-}
-
-console.log(listNumberInsertedUser)
+//! controllare il numero inserito dall'utente 
+//* controllare se non è uguale a un numero bomba 
+                                    //* se è uguale al numero bomba la patita termina e ariva un allert partita terminata e viene comunicato il punteggio 
+//* controllare se è diverso da quelli presenti nell'array
+//* inserisci il numero nell'array e assegna un punto
+//* ripetere il ciclio fino ad attivare a 100- numero delle bombe 
 
 
+
+// CHIEDERE UN NUMERO AL''UTENTE
+// VERIFICARE SE: 1 - NON è PRESENTE NELLA LISTA BOMBA ALTRIMENTI PARTITA FINITA
+//                2 - NON è STATO GIà INSERTIO ALTRIMENTI RICHIEDERE IL NUMERO 
+var numberUser = prompt("Inserisci un numero da 1 a 100" + " \n1/(100-numberBomb)", "50");
+listNumberInsertedUser.push(numberUser)
+
+// do {
+//   if (listBombNumbers.includes(numberUser)) {
+//     console.log("hai perso");
+//     inGame = false;
+//   } else if (listNumberInsertedUser.includes(numberUser)) {
+//     numberUser = parseInt(prompt("Inserisci un numero da 1 a 100" + " \n1/(100-numberBomb)", "50"));
+//   } else {
+    
+//   }
+// } while (inGame || remainingNumbers == 0)
+console.table("i numeri inseriti sono: ", listNumberInsertedUser)
+console.log("round", round)
+console.log("score", listNumberInsertedUser.length)
+console.log("numero di bombe",listBombNumbers.length)
+var remainingNumbers = round - score;
+console.log("partite rimanenti", remainingNumbers)
+
+
+
+
+
+
+// var a = [50, 10, 10, 10, 1, 010, 10, 10, 10,];
+// var b = (5 + 5);
+// var c = a.length - b;
+// var d = (c + b) - a;
+// console.log(d)
