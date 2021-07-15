@@ -64,9 +64,9 @@ Quando la partita termina, comunichiamo all'utente il suo punteggio.
 
 
 
-  //! ********** PROGRAMMA **********
+//! ********** PROGRAMMA **********
 
-  // Variabili 
+// Variabili 
 //inserimento numero utente
 var messageWelcom = alert("BENVENUTO IN CAMPO MINATO \n Regole: \n1- Inserisci un numero da 1 a 100 \n2- I numeri non devono ripetersi \n3- Se inserisci un numero BOMBA perdi la partita \n4- Se inserisci un numero non BOMBA passi al turno successivo e guadagni 1 punto  \n                              Se è tutto chiaro premi \"OK\" e.....\n                              BUON DIVERTIMENTO....!!  ")
 // numero utente 
@@ -90,17 +90,17 @@ var inGame = true;
 //? ***** VALIDATION *****
 //ciclo per inserire i 16 numeri in listBombNumbers
 //* continua a generare numeri compresi tra 1 e 100 fino a quando in listBombNumbers non sono presenti 16 numeri diversi
-while (listBombNumbers.length < numberBomb ){
+while (listBombNumbers.length < numberBomb) {
   var generatorRandom = Math.floor((Math.random() * 100) + 1);
   if (!listBombNumbers.includes(generatorRandom)) {
     listBombNumbers.push(generatorRandom);
-      }
+  }
 }
 console.table(listBombNumbers);
 
 //! controllare il numero inserito dall'utente 
 //* controllare se non è uguale a un numero bomba 
-                                    //* se è uguale al numero bomba la patita termina e ariva un allert partita terminata e viene comunicato il punteggio 
+//* se è uguale al numero bomba la patita termina e ariva un allert partita terminata e viene comunicato il punteggio 
 //* controllare se è diverso da quelli presenti nell'array
 //* inserisci il numero nell'array e assegna un punto
 //* ripetere il ciclio fino ad attivare a 100- numero delle bombe 
@@ -120,13 +120,13 @@ listNumberInsertedUser.push(numberUser)
 //   } else if (listNumberInsertedUser.includes(numberUser)) {
 //     numberUser = parseInt(prompt("Inserisci un numero da 1 a 100" + " \n1/(100-numberBomb)", "50"));
 //   } else {
-    
+
 //   }
 // } while (inGame || remainingNumbers == 0)
 console.table("i numeri inseriti sono: ", listNumberInsertedUser)
 console.log("round", round)
 console.log("score", listNumberInsertedUser.length)
-console.log("numero di bombe",listBombNumbers.length)
+console.log("numero di bombe", listBombNumbers.length)
 var remainingNumbers = round - score;
 console.log("partite rimanenti", remainingNumbers)
 
