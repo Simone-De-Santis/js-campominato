@@ -15,12 +15,12 @@ Se il numero scelto dall'utente è presente tra i numeri bomba, la partita termi
 
 Quando la partita termina, comunichiamo all'utente il suo punteggio.
   */
-var totalNumbers = 5;
-var totalBomb = 2;
+var totalNumbers = 100;
+var totalBomb = 16;
 var listBombNumbers = [];
 var listUserNumber = [];
 var round = totalNumbers - totalBomb;
-var inGame = true;
+var userLost = false;
 
 while (listBombNumbers.length < totalBomb) {
   var generatorRandom = getRandomNumber(1, totalNumbers);
@@ -31,21 +31,30 @@ while (listBombNumbers.length < totalBomb) {
 console.table(listBombNumbers)
 
 
-while (listUserNumber.length < round) {
+while (!userLost && listUserNumber.length < round) {
   //chiedo un numero e lo controllo
   var userChoice = getUserNumber(1, totalNumbers);
   // controllo che il numero sia nell'array
-  if (isInArray(userChoice, listUserNumber)) {
-    alert("numero già inserito")
+  if (isInArray(userChoice, listBombNumbers)) {
+    alert("game over");
+    userLost = true;
   } else {
-    if (isInArray(userChoice, listBombNumbers)) {
+    if (isInArray(userChoice, listUserNumber)) {
       //controllo che il numero non sia nell'array
-      alert("game over")
+      alert("numero già inserito")
+
     } else {
       listUserNumber.push(userChoice);
     }
   }
 }
+if (userLost) {
+  alert("hai perso!!!!! hai totalizato :" + " " + listUserNumber.length + " " + "punti")
+} else {
+  alert("hai VINTO   !!!! hai totalizato :" + "  " + listUserNumber.length + " " + "punti")
+
+}
+console.log("hai vinto")
 
 //! *********** funzioni */
 /**
